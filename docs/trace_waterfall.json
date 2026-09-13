@@ -1,29 +1,255 @@
 [
   {
     "step": 1,
-    "query": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
+    "query": "Ngân hàng có những quy tắc và chính sách gì để bảo vệ tài khoản và phát hiện giao dịch gian lận?",
     "action_type": "FINAL_ANSWER",
-    "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool.",
-    "output": "[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-    "latency_ms": 2845.93
+    "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Ngân hàng thường áp dụng một số quy tắc và chính sách để bảo vệ tài khoản của khách hàng và phát hiện giao dịch gian lận bao gồm:\n\n1. **Xác thực danh tính**: Ngân hàng yêu cầu khách hàng xác thực danh tính khi thực hiện các giao dịch lớn hoặc khi đăng nhập vào tài khoản trực tuyến.\n\n2. **Theo dõi giao dịch bất thường**: Các hệ thống giám sát sẽ theo dõi các giao dịch để phát hiện những hoạt động không bình thường, như giao dịch từ địa điểm chưa từng được sử dụng trước đó hoặc số tiền giao dịch bất ngờ lớn.\n\n3. **Cảnh báo năng động**: Ngân hàng có thể gửi thông báo qua tin nhắn hoặc email cho khách hàng khi phát hiện giao dịch nghi ngờ hoặc khi có thay đổi quan trọng trong tài khoản.\n\n4. **Giới hạn giao dịch**: Một số ngân hàng có thể áp dụng giới hạn về số tiền có thể giao dịch trong một ngày hoặc trong một giao dịch cụ thể để giảm thiểu rủi ro.\n\n5. **Khóa thẻ**: Nếu phát hiện giao dịch nghi ngờ, ngân hàng có quyền tạm thời khóa thẻ của khách hàng để ngăn chặn tổn thất và yêu cầu xác nhận từ khách hàng.\n\n6. **Kiểm tra và xác minh**: Nếu có giao dịch khả nghi, ngân hàng có thể yêu cầu khách hàng xác nhận tính hợp lệ của giao dịch trước khi hoàn tất.\n\n7. **Phân tích dữ liệu**: Ngân hàng thường sử dụng các thuật toán và công nghệ học máy để phân tích dữ liệu giao dịch, nhận diện các mô hình và hành vi gian lận.\n\n8. **Đào tạo nhân viên**: Nhân viên ngân hàng thường được đào tạo về cách phát hiện và xử lý các trường hợp giao dịch gian lận.\n\nNhững quy tắc và chính sách này giúp ngân hàng bảo vệ tài khoản của khách hàng, đồng thời giảm thiểu rủi ro và thiệt hại về tài chính.",
+    "latency_ms": 5039.85
   },
   {
     "step": 1,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy tra cứu hồ sơ tài chính và thông tin thẻ của khách hàng có mã ID 1081.",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "tool_name": "get_customer_profile",
     "arguments": {
-      "student_id": "SV2026001"
+      "client_id": "1081"
     },
-    "observation": {},
-    "latency_ms": 799.12
+    "observation": {
+      "status": "SUCCESS",
+      "client_id": "1081",
+      "data": {
+        "age": "31",
+        "gender": "Female",
+        "yearly_income": "$50666",
+        "total_debt": "$102318",
+        "credit_score": "617",
+        "address": "9633 Mill Lane",
+        "cards_count": 3,
+        "cards": [
+          {
+            "card_id": "404",
+            "brand": "Amex",
+            "type": "Credit",
+            "credit_limit": "$21200",
+            "has_chip": "YES",
+            "card_on_dark_web": "No"
+          },
+          {
+            "card_id": "3427",
+            "brand": "Mastercard",
+            "type": "Credit",
+            "credit_limit": "$10400",
+            "has_chip": "YES",
+            "card_on_dark_web": "No"
+          },
+          {
+            "card_id": "3892",
+            "brand": "Mastercard",
+            "type": "Debit",
+            "credit_limit": "$27377",
+            "has_chip": "YES",
+            "card_on_dark_web": "No"
+          }
+        ]
+      }
+    },
+    "latency_ms": 1548.74
   },
   {
     "step": 2,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy tra cứu hồ sơ tài chính và thông tin thẻ của khách hàng có mã ID 1081.",
     "action_type": "FINAL_ANSWER",
     "thought": "Tổng hợp kết quả từ MCP Server thành công.",
-    "output": "Chưa thể trả lời chi tiết do chưa nhận được dữ liệu từ MCP Server (hãy hoàn thành TODO 2.1).",
+    "output": "Kết quả tra cứu cho sinh viên  (): Lớp , GPA: , Email: , Trạng thái: , Cố vấn: .",
+    "latency_ms": 10.0
+  },
+  {
+    "step": 1,
+    "query": "Khách hàng 1081 vừa báo nghi ngờ lộ thẻ. Hãy lập biên bản xử lý khẩn cấp yêu cầu khóa thẻ và đánh dấu rủi ro cao cho khách hàng này.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "file_investigation_report",
+    "arguments": {
+      "client_id": "1081",
+      "risk_level": "HIGH",
+      "action": "BLOCK_CARD",
+      "findings": "Khách hàng nghi ngờ lộ thông tin thẻ và yêu cầu xử lý khẩn cấp."
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "ticket_id": "IR-BANK-1081-2026",
+      "client_id": "1081",
+      "risk_level": "HIGH",
+      "action_taken": "BLOCK_CARD",
+      "findings": "Khách hàng nghi ngờ lộ thông tin thẻ và yêu cầu xử lý khẩn cấp.",
+      "message": "Đã lập biên bản điều tra thành công mã IR-BANK-1081-2026 cho khách hàng 1081. Lệnh 'BLOCK_CARD' với mức rủi ro HIGH đã được kích hoạt."
+    },
+    "latency_ms": 1212.67
+  },
+  {
+    "step": 2,
+    "query": "Khách hàng 1081 vừa báo nghi ngờ lộ thẻ. Hãy lập biên bản xử lý khẩn cấp yêu cầu khóa thẻ và đánh dấu rủi ro cao cho khách hàng này.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
+    "output": "Đã lập biên bản điều tra thành công mã IR-BANK-1081-2026 cho khách hàng 1081. Lệnh 'BLOCK_CARD' với mức rủi ro HIGH đã được kích hoạt.",
+    "latency_ms": 10.0
+  },
+  {
+    "step": 1,
+    "query": "Khách hàng 845 có giao dịch nào bất thường không? Hãy kiểm tra lịch sử giao dịch và đối chiếu mức độ rủi ro để đưa ra kết luận.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "query_recent_transactions",
+    "arguments": {
+      "client_id": "845",
+      "limit": 10
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "client_id": "845",
+      "total_fetched": 10,
+      "transactions": [
+        {
+          "tx_id": "7477933",
+          "date": "2010-01-01 14:56:00",
+          "amount": "$52.38",
+          "method": "Swipe Transaction",
+          "merchant_city": "Fort Walton Beach",
+          "merchant_state": "FL",
+          "mcc": "5411",
+          "mcc_category": "Grocery Stores, Supermarkets",
+          "errors": ""
+        },
+        {
+          "tx_id": "7477967",
+          "date": "2010-01-01 15:05:00",
+          "amount": "$24.42",
+          "method": "Swipe Transaction",
+          "merchant_city": "Fort Walton Beach",
+          "merchant_state": "FL",
+          "mcc": "4121",
+          "mcc_category": "Taxicabs and Limousines",
+          "errors": ""
+        },
+        {
+          "tx_id": "7481672",
+          "date": "2010-01-02 14:49:00",
+          "amount": "$51.72",
+          "method": "Swipe Transaction",
+          "merchant_city": "Fort Walton Beach",
+          "merchant_state": "FL",
+          "mcc": "5541",
+          "mcc_category": "Service Stations",
+          "errors": ""
+        },
+        {
+          "tx_id": "7481757",
+          "date": "2010-01-02 15:09:00",
+          "amount": "$24.11",
+          "method": "Online Transaction",
+          "merchant_city": "ONLINE",
+          "merchant_state": "",
+          "mcc": "4121",
+          "mcc_category": "Taxicabs and Limousines",
+          "errors": ""
+        },
+        {
+          "tx_id": "7484317",
+          "date": "2010-01-03 09:59:00",
+          "amount": "$2.12",
+          "method": "Swipe Transaction",
+          "merchant_city": "Fort Walton Beach",
+          "merchant_state": "FL",
+          "mcc": "5411",
+          "mcc_category": "Grocery Stores, Supermarkets",
+          "errors": ""
+        },
+        {
+          "tx_id": "7484580",
+          "date": "2010-01-03 10:56:00",
+          "amount": "$1.89",
+          "method": "Swipe Transaction",
+          "merchant_city": "Fort Walton Beach",
+          "merchant_state": "FL",
+          "mcc": "5411",
+          "mcc_category": "Grocery Stores, Supermarkets",
+          "errors": ""
+        },
+        {
+          "tx_id": "7484921",
+          "date": "2010-01-03 12:10:00",
+          "amount": "$21.08",
+          "method": "Swipe Transaction",
+          "merchant_city": "Gulf Breeze",
+          "merchant_state": "FL",
+          "mcc": "5970",
+          "mcc_category": "Artist Supply Stores, Craft Shops",
+          "errors": ""
+        },
+        {
+          "tx_id": "7485627",
+          "date": "2010-01-03 14:50:00",
+          "amount": "$69.68",
+          "method": "Swipe Transaction",
+          "merchant_city": "Fort Walton Beach",
+          "merchant_state": "FL",
+          "mcc": "5912",
+          "mcc_category": "Drug Stores and Pharmacies",
+          "errors": ""
+        },
+        {
+          "tx_id": "7489653",
+          "date": "2010-01-04 14:59:00",
+          "amount": "$100.65",
+          "method": "Swipe Transaction",
+          "merchant_city": "Navarre",
+          "merchant_state": "FL",
+          "mcc": "5300",
+          "mcc_category": "Wholesale Clubs",
+          "errors": ""
+        },
+        {
+          "tx_id": "7493525",
+          "date": "2010-01-05 14:45:00",
+          "amount": "$41.66",
+          "method": "Swipe Transaction",
+          "merchant_city": "Fort Walton Beach",
+          "merchant_state": "FL",
+          "mcc": "5912",
+          "mcc_category": "Drug Stores and Pharmacies",
+          "errors": ""
+        }
+      ]
+    },
+    "latency_ms": 969.28
+  },
+  {
+    "step": 2,
+    "query": "Khách hàng 845 có giao dịch nào bất thường không? Hãy kiểm tra lịch sử giao dịch và đối chiếu mức độ rủi ro để đưa ra kết luận.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
+    "output": "Đã hoàn tất xử lý qua MCP Server: {\"status\": \"SUCCESS\", \"client_id\": \"845\", \"total_fetched\": 10, \"transactions\": [{\"tx_id\": \"7477933\", \"date\": \"2010-01-01 14:56:00\", \"amount\": \"$52.38\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Fort Walton Beach\", \"merchant_state\": \"FL\", \"mcc\": \"5411\", \"mcc_category\": \"Grocery Stores, Supermarkets\", \"errors\": \"\"}, {\"tx_id\": \"7477967\", \"date\": \"2010-01-01 15:05:00\", \"amount\": \"$24.42\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Fort Walton Beach\", \"merchant_state\": \"FL\", \"mcc\": \"4121\", \"mcc_category\": \"Taxicabs and Limousines\", \"errors\": \"\"}, {\"tx_id\": \"7481672\", \"date\": \"2010-01-02 14:49:00\", \"amount\": \"$51.72\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Fort Walton Beach\", \"merchant_state\": \"FL\", \"mcc\": \"5541\", \"mcc_category\": \"Service Stations\", \"errors\": \"\"}, {\"tx_id\": \"7481757\", \"date\": \"2010-01-02 15:09:00\", \"amount\": \"$24.11\", \"method\": \"Online Transaction\", \"merchant_city\": \"ONLINE\", \"merchant_state\": \"\", \"mcc\": \"4121\", \"mcc_category\": \"Taxicabs and Limousines\", \"errors\": \"\"}, {\"tx_id\": \"7484317\", \"date\": \"2010-01-03 09:59:00\", \"amount\": \"$2.12\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Fort Walton Beach\", \"merchant_state\": \"FL\", \"mcc\": \"5411\", \"mcc_category\": \"Grocery Stores, Supermarkets\", \"errors\": \"\"}, {\"tx_id\": \"7484580\", \"date\": \"2010-01-03 10:56:00\", \"amount\": \"$1.89\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Fort Walton Beach\", \"merchant_state\": \"FL\", \"mcc\": \"5411\", \"mcc_category\": \"Grocery Stores, Supermarkets\", \"errors\": \"\"}, {\"tx_id\": \"7484921\", \"date\": \"2010-01-03 12:10:00\", \"amount\": \"$21.08\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Gulf Breeze\", \"merchant_state\": \"FL\", \"mcc\": \"5970\", \"mcc_category\": \"Artist Supply Stores, Craft Shops\", \"errors\": \"\"}, {\"tx_id\": \"7485627\", \"date\": \"2010-01-03 14:50:00\", \"amount\": \"$69.68\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Fort Walton Beach\", \"merchant_state\": \"FL\", \"mcc\": \"5912\", \"mcc_category\": \"Drug Stores and Pharmacies\", \"errors\": \"\"}, {\"tx_id\": \"7489653\", \"date\": \"2010-01-04 14:59:00\", \"amount\": \"$100.65\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Navarre\", \"merchant_state\": \"FL\", \"mcc\": \"5300\", \"mcc_category\": \"Wholesale Clubs\", \"errors\": \"\"}, {\"tx_id\": \"7493525\", \"date\": \"2010-01-05 14:45:00\", \"amount\": \"$41.66\", \"method\": \"Swipe Transaction\", \"merchant_city\": \"Fort Walton Beach\", \"merchant_state\": \"FL\", \"mcc\": \"5912\", \"mcc_category\": \"Drug Stores and Pharmacies\", \"errors\": \"\"}]}",
+    "latency_ms": 10.0
+  },
+  {
+    "step": 1,
+    "query": "Hãy kiểm tra thông tin tài chính và giao dịch của khách hàng có mã ID 9999999.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "get_customer_profile",
+    "arguments": {
+      "client_id": "9999999"
+    },
+    "observation": {
+      "status": "NOT_FOUND",
+      "message": "Không tìm thấy dữ liệu khách hàng có mã '9999999' trong hệ thống ngân hàng."
+    },
+    "latency_ms": 3282.1
+  },
+  {
+    "step": 2,
+    "query": "Hãy kiểm tra thông tin tài chính và giao dịch của khách hàng có mã ID 9999999.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
+    "output": "Không tìm thấy dữ liệu khách hàng có mã '9999999' trong hệ thống ngân hàng.",
     "latency_ms": 10.0
   }
 ]

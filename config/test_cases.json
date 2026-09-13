@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Ngân hàng có những quy tắc và chính sách gì để bảo vệ tài khoản và phát hiện giao dịch gian lận?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ System Prompt/kiến thức bảo mật ngân hàng, không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy tra cứu hồ sơ tài chính và thông tin thẻ của khách hàng có mã ID 1081.",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu hồ sơ, tự động phát sinh Tool Call 'get_customer_profile' với client_id=1081.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "investigation_action",
+    "question": "Khách hàng 1081 vừa báo nghi ngờ lộ thẻ. Hãy lập biên bản xử lý khẩn cấp yêu cầu khóa thẻ và đánh dấu rủi ro cao cho khách hàng này.",
+    "expected_behavior": "Agent tự động phát sinh Tool Call 'file_investigation_report' với đúng client_id, mức độ rủi ro HIGH và hành động BLOCK_CARD.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Khách hàng 845 có giao dịch nào bất thường không? Hãy kiểm tra lịch sử giao dịch và đối chiếu mức độ rủi ro để đưa ra kết luận.",
+    "expected_behavior": "Agent thực hiện chuỗi suy luận ReAct đa bước: Tra cứu lịch sử giao dịch -> Phân tích đột biến chi tiêu/ngành hàng -> Đưa ra kết luận điều tra.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy kiểm tra thông tin tài chính và giao dịch của khách hàng có mã ID 9999999.",
+    "expected_behavior": "Agent nhận kết quả NOT_FOUND từ Tool khi khách hàng không tồn tại và đưa ra phản hồi lịch sự, chính xác, không bịa đặt dữ liệu.",
+    "complexity": "Medium"
+  }
+]
